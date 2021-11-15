@@ -149,7 +149,16 @@ List<Widget> _tabListWidget(BuildContext context) {
   return TabListProvider.tabList
       .map(
         (e) => InkWell(
-          onTap: () => tabController.value = e.index,
+          onTap: () {
+            tabController.value = e.index;
+            if (e.index == 1) {
+              AttributeProvider.of<HomePageAttributes>(context)
+                  .scrollToBottom();
+            }
+            if (e.index == 0) {
+              AttributeProvider.of<HomePageAttributes>(context).scrollToTop();
+            }
+          },
           child: TabItemWidget(
             tabModel: e,
             isSelected: _isSelected(tabController, e),

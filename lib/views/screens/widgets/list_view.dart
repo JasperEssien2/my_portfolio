@@ -22,6 +22,8 @@ class DisplayListView extends StatelessWidget {
         return ListView.builder(
           itemCount: DisplayListProvider.itemList.length,
           shrinkWrap: true,
+          controller: AttributeProvider.of<HomePageAttributes>(context)
+              .scrollController,
           physics: isSmallScreen ? const NeverScrollableScrollPhysics() : null,
           itemBuilder: (c, index) {
             final e = DisplayListProvider.itemList[index];

@@ -16,9 +16,19 @@ class DisplayListProvider {
         ),
         ItemDisplayModel(
           caption: 'FLUTTER',
+          name: 'Paint Challenge',
+          details:
+              'A flutter paint challenge, designing an interactive clock like color selector. Tap on this card to take a look.',
+          urlLink: 'https://github.com/JasperEssien2/paint_challenge',
+          imageUrl:
+              'https://firebasestorage.googleapis.com/v0/b/jahswill-dev.appspot.com/o/Photo%20from%20Jahswill%20Essien.jpg?alt=media&token=74945321-59d2-4967-819e-de2fdaf841cd',
+          displayType: DisplayType.PROJECT,
+        ),
+        ItemDisplayModel(
+          caption: 'FLUTTER',
           name: 'Flutter utilities',
           details:
-              'A flutter package to make api consumption and other repititive tasks easier and faster to implement',
+              "I got so lazy writing codes for api consumption and flutter cubit and state files. I thought of a way to simplify the process, and here's the way i did that!",
           urlLink: 'https://github.com/JasperEssien2/flutter-utilities',
           imageUrl:
               'https://logowik.com/content/uploads/images/flutter5786.jpg',

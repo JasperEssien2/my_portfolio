@@ -8,10 +8,11 @@ import 'package:my_portfolio/views/theme/colors.dart';
 class ItemExperienceDisplay extends StatelessWidget {
   final ItemDisplayModel itemDisplayModel;
   final bool isSmallScreen;
+
   const ItemExperienceDisplay({
     Key? key,
     required this.itemDisplayModel,
-    this.isSmallScreen  = false,
+    this.isSmallScreen = false,
   }) : super(key: key);
 
   @override
@@ -86,10 +87,10 @@ class ItemExperienceDisplay extends StatelessWidget {
 
   double _horizontalMargin(bool isHovering) {
     return isSmallScreen
-              ? 0
-              : isHovering
-                  ? 12
-                  : 24;
+        ? 0
+        : isHovering
+            ? 12
+            : 24;
   }
 
   double _smallTextSize(bool isHovering) => isHovering ? 14 : 12;
