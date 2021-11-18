@@ -19,52 +19,68 @@ class DisplayListView extends StatelessWidget {
     return ValueListenableBuilder<int>(
       valueListenable: attr.tabController,
       builder: (context, index, _) {
+        if (isSmallScreen) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: DisplayListProvider.itemList
+                .map((e) => itemBuilder(context, e))
+                .toList(),
+          );
+        }
         return ListView.builder(
           itemCount: DisplayListProvider.itemList.length,
-          shrinkWrap: true,
+          shrinkWrap: isSmallScreen ? false : true,
           controller: AttributeProvider.of<HomePageAttributes>(context)
               .scrollController,
           physics: isSmallScreen ? const NeverScrollableScrollPhysics() : null,
           itemBuilder: (c, index) {
             final e = DisplayListProvider.itemList[index];
-            switch (e.displayType) {
-              case DisplayType.PROJECT:
-                return VisibilityDetector(
-                  key: Key(index.toString()),
-                  onVisibilityChanged: (VisibilityInfo info) {
-                    if (info.visibleFraction == 1) {
-                      attr.tabController.value = 1;
-                    }
-                  },
-                  child: ItemProjectDispay(
-                    itemDisplayModel: e,
-                    isSmallScreen: isSmallScreen,
-                  ),
-                );
-
-              case DisplayType.EXPERIENCE:
-                return VisibilityDetector(
-                  key: Key(index.toString()),
-                  onVisibilityChanged: (VisibilityInfo info) {
-                    if (info.visibleFraction == 1) {
-                      attr.tabController.value = 2;
-                    }
-                  },
-                  child: ItemExperienceDisplay(
-                    itemDisplayModel: e,
-                    isSmallScreen: isSmallScreen,
-                  ),
-                );
-              case DisplayType.ARTICLES:
-                return ItemExperienceDisplay(itemDisplayModel: e);
-              case DisplayType.SPACER:
-                return const SizedBox(
-                  height: 120,
-                );
-            }
+            return itemBuilder(context, e);
           },
         );
       },
     );
+  }
+
+  Widget itemBuilder(BuildContext context, ItemDisplayModel model) {
+    final attr = AttributeProvider.of<HomePageAttributes>(context);
+
+    switch (model.displayType) {
+      case DisplayType.PROJECT:
+        return VisibilityDetector(
+          key: Key(model.urlLink),
+          onVisibilityChanged: (VisibilityInfo info) {
+            if (info.visibleFraction == 1) {
+              attr.tabController.value = 1;
+            }
+          },
+          child: ItemProjectDispay(
+            itemDisplayModel: model,
+            isSmallScreen: isSmallScreen,
+          ),
+        );
+
+      case DisplayType.EXPERIENCE:
+        return VisibilityDetector(
+          key: Key(model.urlLink),
+          onVisibilityChanged: (VisibilityInfo info) {
+            if (info.visibleFraction == 1) {
+              attr.tabController.value = 2;
+            }
+          },
+          child: ItemExperienceDisplay(
+            itemDisplayModel: model,
+            isSmallScreen: isSmallScreen,
+          ),
+        );
+      case DisplayType.ARTICLES:
+        return ItemExperienceDisplay(itemDisplayModel: model);
+      case DisplayType.SPACER:
+        return const SizedBox(
+          height: 120,
+        );
+    }
   }
 }

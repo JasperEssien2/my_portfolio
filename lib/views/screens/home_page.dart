@@ -98,45 +98,51 @@ class _ContentSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final attr = AttributeProvider.of<HomePageAttributes>(context);
+    final size = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 24,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const MyInfoWidget(),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 12,
+    return SizedBox(
+      width: size.width,
+      height: size.height,
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Container(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 24,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const MyInfoWidget(),
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 12,
+                  ),
+                  child: SocialNetworkWidget(),
                 ),
-                child: SocialNetworkWidget(),
               ),
-            ),
-            const SizedBox(height: 50),
-            ValueListenableBuilder<int>(
-              valueListenable: attr.tabController,
-              builder: (context, index, _) {
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: _tabListWidget(context),
-                );
-              },
-            ),
-            const Flexible(
+              const SizedBox(height: 50),
+              ValueListenableBuilder<int>(
+                valueListenable: attr.tabController,
+                builder: (context, index, _) {
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: _tabListWidget(context),
+                  );
+                },
+              ),
+              const Flexible(
                 child: DisplayListView(
-              isSmallScreen: true,
-            )),
-          ],
+                  isSmallScreen: true,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

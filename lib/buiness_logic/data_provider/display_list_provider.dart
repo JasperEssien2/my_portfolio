@@ -6,6 +6,16 @@ class DisplayListProvider {
   static List<ItemDisplayModel> get itemList => const [
         ItemDisplayModel(
           caption: 'FLUTTER',
+          name: 'Covid-19 tracker',
+          details:
+              'A complete sample application, includes API implementation, a UI screen, flutter bloc state management implementation, this project shows my coding pattern, and how i structure my projects, approach i used in making code reusable.',
+          urlLink: 'https://github.com/JasperEssien2/covid_example',
+          imageUrl:
+              'https://github.com/JasperEssien2/covid_example/blob/master/visuals/WhatsApp%20Image%202021-11-17%20at%2022.11.14.jpeg',
+          displayType: DisplayType.PROJECT,
+        ),
+        ItemDisplayModel(
+          caption: 'FLUTTER',
           name: 'Encards',
           details: 'An application that makes writing and sharing cards fun',
           urlLink:
