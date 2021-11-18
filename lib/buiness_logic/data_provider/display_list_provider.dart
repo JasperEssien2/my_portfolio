@@ -11,7 +11,7 @@ class DisplayListProvider {
               'A complete sample application, includes API implementation, a UI screen, flutter bloc state management implementation, this project shows my coding pattern, and how i structure my projects, approach i used in making code reusable.',
           urlLink: 'https://github.com/JasperEssien2/covid_example',
           imageUrl:
-              'https://github.com/JasperEssien2/covid_example/blob/master/visuals/WhatsApp%20Image%202021-11-17%20at%2022.11.14.jpeg',
+              'https://firebasestorage.googleapis.com/v0/b/jahswill-dev.appspot.com/o/WhatsApp%20Image%202021-11-17%20at%2022.11.14.jpeg?alt=media&token=62377a1f-ff29-4fca-bb6b-a8e09425bf6b',
           displayType: DisplayType.PROJECT,
         ),
         ItemDisplayModel(
@@ -76,10 +76,10 @@ class DisplayListProvider {
           caption: '04/2021-Present',
           name: 'Creamella',
           details:
-              "An ice-cream mix powder comoany, where I've been contracted to digitilize their business, making ordering, processing and management seamless. I lead a 3 man team, which includes a backend engineer and a UI/UX designer",
+              "An ice-cream mix powder company, where I've been contracted to digitilize their business, making ordering, processing and management seamless. I lead a 3 man team, which includes a backend engineer and a UI/UX designer",
           urlLink: 'http://creamella.com.ng/',
           imageUrl:
-              'https://creamella.com.ng/wp-content/uploads/2021/02/Creamella-ice-cream-png.png',
+              'https://firebasestorage.googleapis.com/v0/b/jahswill-dev.appspot.com/o/Creamella-ice-cream-png.png?alt=media&token=c9d27f4a-6b2a-427d-b02d-1e9e123949c4',
           displayType: DisplayType.EXPERIENCE,
         ),
       ];

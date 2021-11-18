@@ -78,8 +78,8 @@ class DisplayListView extends StatelessWidget {
       case DisplayType.ARTICLES:
         return ItemExperienceDisplay(itemDisplayModel: model);
       case DisplayType.SPACER:
-        return const SizedBox(
-          height: 120,
+        return SizedBox(
+          height: isSmallScreen ? 32 : 70,
         );
     }
   }

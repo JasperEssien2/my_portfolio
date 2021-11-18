@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "jahswill-dev"
-  }
+    "default": "jahswill-dev",
+    "prod": "jahswill-dev"
+  },
+  "targets": {}
 }

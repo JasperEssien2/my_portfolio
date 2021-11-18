@@ -119,7 +119,7 @@ class _ContentSmall extends StatelessWidget {
               const Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 32,
+                    horizontal: 12,
                     vertical: 12,
                   ),
                   child: SocialNetworkWidget(),
